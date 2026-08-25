@@ -47,7 +47,10 @@ document.addEventListener("DOMContentLoaded", async function() {
                 const card = document.createElement("div");
                 card.className = "report-card";
                 card.innerHTML = `
-                    <img src="${report.foto_url}" class="report-img" alt="Foto">
+                    <div class="foto-container" onclick="fokusLoadFoto(this, '${report.foto_url}')">
+    <div class="foto-placeholder">📸<br>Ketuk<br>Muat</div>
+    <img data-src="${report.foto_url}" class="report-img" alt="Foto">
+</div>
                     <div class="report-info">
                         <h4>${report.judul}</h4>
                         <p>📍 ${report.lokasi} | 📅 ${tanggal}</p>
