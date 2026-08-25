@@ -110,3 +110,60 @@ document.addEventListener("DOMContentLoaded", function() {
         messageDiv.className = `message ${type}`; 
     }
 });
+
+// ==========================================
+// FITUR ON-DEMAND LOADING & CINEMATIC LIGHTBOX
+// ==========================================
+
+window.fokusLoadFoto = function(container, url) {
+    const placeholder = container.querySelector('.foto-placeholder');
+    const img = container.querySelector('.report-img');
+
+    // Jika gambar belum dimuat (placeholder masih terlihat)
+    if (placeholder.style.display !== 'none') {
+        
+        // 1. Ubah teks menjadi status memuat
+        placeholder.innerHTML = "⏳<br>Menarik<br>Data...";
+        placeholder.style.background = "linear-gradient(145deg, #1a73e8, #1557b0)"; // Ganti warna biru
+        placeholder.style.border = "none";
+        
+        // 2. Siapkan pendeteksi jika gambar selesai ditarik
+        img.onload = function() {
+            placeholder.style.display = 'none';
+            img.style.display = 'block';
+            
+            // Ubah fungsi klik: Jika ditekan lagi, buka mode layar penuh (Lightbox)
+            container.onclick = function() {
+                bukaLightbox(img.src);
+            };
+        };
+
+        // Jika link rusak / gagal ditarik
+        img.onerror = function() {
+            placeholder.innerHTML = "❌<br>Gagal<br>Dimuat";
+            placeholder.style.background = "#d93025";
+        };
+
+        // 3. Picu browser untuk memfokuskan unduhan ke URL ini sekarang juga
+        img.src = url;
+    }
+};
+
+window.bukaLightbox = function(srcUrl) {
+    let lb = document.getElementById('lightbox');
+    
+    // Buat elemen lightbox jika belum ada di dalam body
+    if (!lb) {
+        lb = document.createElement('div');
+        lb.id = 'lightbox';
+        lb.innerHTML = `
+            <img src="" id="lightbox-img">
+            <button class="lightbox-close-btn" onclick="document.getElementById('lightbox').style.display='none'">Tutup Layar</button>
+        `;
+        document.body.appendChild(lb);
+    }
+    
+    // Suntikkan gambar dan tampilkan mode gelap
+    document.getElementById('lightbox-img').src = srcUrl;
+    lb.style.display = 'flex';
+};
