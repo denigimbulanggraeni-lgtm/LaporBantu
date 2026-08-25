@@ -34,10 +34,11 @@ document.addEventListener("DOMContentLoaded", async function() {
 
                 const card = document.createElement("div");
                 card.className = "report-card";
-                card.innerHTML = `
-                <div class="foto-container" onclick="fokusLoadFoto(this, '${report.foto_url}')">
-                    <div class="foto-placeholder">📸<br>Ketuk<br>Muat</div>
-                    <img data-src="${report.foto_url}" class="report-img" alt="Foto">
+               card.innerHTML = `
+                <div class="foto-container" onclick="window.open('${report.foto_url}', '_blank')">
+                    <div class="foto-placeholder" style="background: linear-gradient(145deg, #1a73e8, #1557b0); border:none;">
+                        🔗<br>Buka<br>Foto
+                    </div>
                 </div>
                 <div class="report-info">
                     <h4>${report.judul}</h4>
