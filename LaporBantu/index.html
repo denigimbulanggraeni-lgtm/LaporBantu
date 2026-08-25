@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaporBantu Diponegoro - Login & Daftar</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="login-card">
+            <h2>LaporBantu</h2>
+            <p>SMK Diponegoro</p>
+            
+            <!-- FORM LOGIN -->
+            <form id="loginForm">
+                <div class="input-group">
+                    <label>Nomor Induk Siswa (NIS)</label>
+                    <input type="number" id="nisLogin" placeholder="Masukkan NIS Anda" required>
+                </div>
+                <div class="input-group">
+                    <label>Nama Lengkap</label>
+                    <input type="text" id="namaLogin" placeholder="Sesuai absen" required>
+                </div>
+                <button type="submit" id="btnLogin">Masuk Aplikasi</button>
+                <p style="margin-top: 15px; font-size: 13px;">Belum punya akun? <a href="#" id="linkToRegister" style="color: #1a73e8; text-decoration: none; font-weight: bold;">Daftar di sini</a></p>
+            </form>
+
+            <!-- FORM REGISTRASI (Awalnya Disembunyikan) -->
+            <form id="registerForm" style="display: none;">
+                <div class="input-group">
+                    <label>Nomor Induk Siswa (NIS)</label>
+                    <input type="number" id="nisReg" placeholder="Wajib diisi" required>
+                </div>
+                <div class="input-group">
+                    <label>Nama Lengkap</label>
+                    <input type="text" id="namaReg" placeholder="Sesuai absen" required>
+                </div>
+                <div class="input-group">
+                    <label>Kelas</label>
+                    <input type="text" id="kelasReg" placeholder="Contoh: XI DKV 1" required>
+                </div>
+                <button type="submit" id="btnRegister" style="background-color: #34a853;">Daftar Sekarang</button>
+                <p style="margin-top: 15px; font-size: 13px;">Sudah punya akun? <a href="#" id="linkToLogin" style="color: #1a73e8; text-decoration: none; font-weight: bold;">Kembali ke Login</a></p>
+            </form>
+
+            <!-- PESAN ERROR/SUKSES -->
+            <div id="authMessage" class="message hidden"></div>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
