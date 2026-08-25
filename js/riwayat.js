@@ -35,17 +35,17 @@ document.addEventListener("DOMContentLoaded", async function() {
                 const card = document.createElement("div");
                 card.className = "report-card";
                 card.innerHTML = `
-                    <div class="foto-container" onclick="fokusLoadFoto(this, '${report.foto_url}')">
-    <div class="foto-placeholder">📸<br>Ketuk<br>Muat</div>
-    <img data-src="${report.foto_url}" class="report-img" alt="Foto">
-</div>
-                    <div class="report-info">
-                        <h4>${report.judul}</h4>
-                        <p>📍 ${report.lokasi} | 🏷️ ${report.kategori}</p>
-                        <p>📅 ${tanggal}</p>
-                        <span class="status-badge ${statusClass}">${report.status}</span>
-                    </div>
-                `;
+                <div class="foto-container" onclick="fokusLoadFoto(this, '${report.foto_url}')">
+                    <div class="foto-placeholder">📸<br>Ketuk<br>Muat</div>
+                    <img data-src="${report.foto_url}" class="report-img" alt="Foto">
+                </div>
+                <div class="report-info">
+                    <h4>${report.judul}</h4>
+                    <p>📍 ${report.lokasi} | 🏷️ ${report.kategori}</p>
+                    <p>📅 ${tanggal}</p>
+                    <span class="status-badge ${statusClass}">${report.status}</span>
+                </div>
+            `;
                 reportContainer.appendChild(card);
             });
         } else {
